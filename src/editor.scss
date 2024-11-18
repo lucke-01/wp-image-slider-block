@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+
+.scrollable-gallery-inner-container {
+	overflow-y:scroll;
+	max-height: 300px;
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+	margin: 0;
+	img {
+		object-fit: cover;
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
+	}
+}

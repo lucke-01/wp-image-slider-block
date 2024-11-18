@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/image-slider",
+	"version": "0.1.0",
+	"title": "Image Slider",
+	"category": "widgets",
+	"icon": "gallery",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"textdomain": "image-slider",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+        "images": {
+            "type": "array",
+            "default": []
+		},
+		"pauseOnHover": {
+			"type": "boolean",
+			"default": false
+    	},
+		"grayEffect": {
+			"type": "boolean",
+			"default": false
+    	},
+		"direction": {
+			"type": "string",
+			"default": "right",
+			"enum": [
+				"left",
+				"right"
+			]
+		},
+		"speed": {
+            "type": "integer",
+            "default": 10
+		},
+		"maxWidth": {
+            "type": "integer",
+			"default": null
+		},
+		"maxWidthUnit": {
+			"type": "string",
+			"default": "px",
+			"enum": [
+				"px",
+				"vw",
+				"%"
+			]
+		},
+		"maxHeight": {
+            "type": "integer",
+			"default": null
+		},
+		"maxHeightUnit": {
+			"type": "string",
+			"default": "px",
+			"enum": [
+				"px",
+				"vw",
+				"%"
+			]
+		}
+	}
+}
