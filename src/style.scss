@@ -1,0 +1,42 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+@import 'style/style-functions.scss';
+.slider-container {
+	//width: 100%;
+	overflow-x: hidden;
+}
+.pause-on-hover:hover {
+	animation-play-state: paused !important;
+}
+.slider-images {
+	display: flex;
+	img {
+		/*max-width: 150px;*/
+		max-height: 100px;
+		margin-left: 2em;
+	}
+}
+.gray-effect {
+	@include vendor-prefix('filter', 'invert(.75) grayscale(1)');
+}
+@keyframes slide-left {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(calc((-1 * var(--total-container-transform))));
+	}
+}
+
+@keyframes slide-right {
+	0% {
+		transform: translateX(calc(-1 * var(--total-container-transform)));
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
