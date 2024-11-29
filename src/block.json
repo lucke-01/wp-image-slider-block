@@ -2,10 +2,10 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "create-block/image-slider",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"title": "Image Slider",
 	"category": "widgets",
-	"icon": "gallery",
+	"icon": "images-alt2",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {

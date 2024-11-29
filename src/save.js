@@ -39,6 +39,7 @@ export default function save(props) {
 						{props.attributes.images.map((image, index) => (
 							<img 
 								style={{...imgStyle}} 
+								alt={`"${image.alt}"`}
 								key={index} src={image.url} 
 								data-mediaid={image.id}
 								className={`${props.attributes.grayEffect ? "gray-effect" : ""}`}
@@ -49,6 +50,7 @@ export default function save(props) {
 							<img
 								style={{ ...imgStyle}} 
 								key={index}
+								alt={`"${image.alt}"`}
 								src={image.url}
 								data-mediaid={image.id}
 								className={`duplicate-image ${props.attributes.grayEffect ? "gray-effect" : ""}`}
