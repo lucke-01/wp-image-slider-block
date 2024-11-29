@@ -29,6 +29,7 @@ export default function save(props) {
 	const imageWidth = props.attributes.maxWidthUnit == "px" ? parseInt(props.attributes.maxWidth) : 150;
 	const containerWidth = 600; // this should be the dinamic size of the container but we can not access here to the dom since save.js is only used to generate the html that will be displayed in the frontend. for doing so we will need to see in view.js
 	let animationSeconds = (((imageWidth * numberImages) + (containerWidth/2)) / 150) + parseInt(props.attributes.speed);
+	//console.log({image1: props.attributes.images[0]});
 	return (
 			<div {...blockProperties}>
 				<div 
@@ -39,9 +40,11 @@ export default function save(props) {
 						{props.attributes.images.map((image, index) => (
 							<img 
 								style={{...imgStyle}} 
-								alt={`"${image.alt}"`}
+								alt={image.alt}
 								key={index} src={image.url} 
 								data-mediaid={image.id}
+								height={image.sizes.full.height}
+								width={image.sizes.full.width}
 								className={`${props.attributes.grayEffect ? "gray-effect" : ""}`}
 								/>
 						))}
@@ -50,9 +53,11 @@ export default function save(props) {
 							<img
 								style={{ ...imgStyle}} 
 								key={index}
-								alt={`"${image.alt}"`}
+								alt={image.alt}
 								src={image.url}
 								data-mediaid={image.id}
+								height={image.sizes.full.height}
+								width={image.sizes.full.width}
 								className={`duplicate-image ${props.attributes.grayEffect ? "gray-effect" : ""}`}
 							/>
 						))}

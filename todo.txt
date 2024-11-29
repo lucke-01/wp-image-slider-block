@@ -1,0 +1,4 @@
+TODO:
+    add option to choose between different size of images.
+        to get to different sizes of images in image object:
+            {url: "" (default url), sizes {fulll: {url: }}}
