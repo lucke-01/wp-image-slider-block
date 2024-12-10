@@ -29,7 +29,8 @@ export default function save(props) {
 	const imageWidth = props.attributes.maxWidthUnit == "px" ? parseInt(props.attributes.maxWidth) : 150;
 	const containerWidth = 600; // this should be the dinamic size of the container but we can not access here to the dom since save.js is only used to generate the html that will be displayed in the frontend. for doing so we will need to see in view.js
 	let animationSeconds = (((imageWidth * numberImages) + (containerWidth/2)) / 150) + parseInt(props.attributes.speed);
-	//console.log({image1: props.attributes.images[0]});
+	const defaultWidht = 300;
+	const defaulHeight = 300;
 	return (
 			<div {...blockProperties}>
 				<div 
@@ -43,8 +44,8 @@ export default function save(props) {
 								alt={image.alt}
 								key={index} src={image.url} 
 								data-mediaid={image.id}
-								height={image.sizes.full.height}
-								width={image.sizes.full.width}
+								height={image.sizes.medium.height != null && image.sizes.medium.height != 0 ? image.sizes.medium.height : defaulHeight}
+								width={image.sizes.medium.width != null && image.sizes.medium.width != 0 ? image.sizes.medium.width : defaultWidht}
 								className={`${props.attributes.grayEffect ? "gray-effect" : ""}`}
 								/>
 						))}
@@ -56,9 +57,21 @@ export default function save(props) {
 								alt={image.alt}
 								src={image.url}
 								data-mediaid={image.id}
-								height={image.sizes.full.height}
-								width={image.sizes.full.width}
+								height={image.sizes.medium.height != null && image.sizes.medium.height != 0 ? image.sizes.medium.height : defaulHeight}
+								width={image.sizes.medium.width != null && image.sizes.medium.width != 0 ? image.sizes.medium.width : defaultWidht}
 								className={`duplicate-image ${props.attributes.grayEffect ? "gray-effect" : ""}`}
+							/>
+						))}
+						{props.attributes.images.map((image, index) => (
+							<img
+								style={{ ...imgStyle}} 
+								key={index}
+								alt={image.alt}
+								src={image.url}
+								data-mediaid={image.id}
+								height={image.sizes.medium.height != null && image.sizes.medium.height != 0 ? image.sizes.medium.height : defaulHeight}
+								width={image.sizes.medium.width != null && image.sizes.medium.width != 0 ? image.sizes.medium.width : defaultWidht}
+								className={`duplicate-image2 ${props.attributes.grayEffect ? "gray-effect" : ""}`}
 							/>
 						))}
 					</figure>
